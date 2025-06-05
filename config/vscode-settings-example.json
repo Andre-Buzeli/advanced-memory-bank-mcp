@@ -1,0 +1,11 @@
+{
+  "mcp.servers": {
+    "advanced-memory-bank": {
+      "command": "npx",
+      "args": ["-y", "@andrebuzeli/advanced-memory-bank"],
+      "env": {
+        "MEMORY_BANK_ROOT": "/path/to/your/memory/folder"
+      }
+    }
+  }
+}
