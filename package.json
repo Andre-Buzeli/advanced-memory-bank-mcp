@@ -1,0 +1,82 @@
+{
+  "name": "@andrebuzeli/advanced-memory-bank",
+  "version": "3.2.4",
+  "description": "Truly Zero-Dependency Advanced MCP server with local file-based memory features for VS Code/Cursor - NO EXTERNAL API REQUIRED - Built-in AI embeddings using native algorithms - Zero-config local semantic search (Embedding v1.2.0, FileSystem v2.0.0, MemoryManager v2.1.0) for structured development workflows - 11 Tools PRODUCTION READY - Fixed JSON-RPC protocol compliance",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andre-Buzeli/advanced-memory-bank-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "memory-bank",
+    "advanced",
+    "vector-database",
+    "pgvector",
+    "postgres",
+    "semantic-search",
+    "embeddings",
+    "cursor-improvements",
+    "vscode-compatible",
+    "cursor-compatible",
+    "structured-development",
+    "visual-workflow",
+    "project-management",
+    "documentation",
+    "creative-thinking",
+    "sequential-thinking",
+    "model-context-protocol"
+  ],
+  "main": "dist/main/index.js",
+  "files": [
+    "dist",
+    "config",
+    "templates",
+    "custom-instructions.md",
+    "custom-instructions-en.md",
+    "README.md",
+    "README-npm-en.md"
+  ],
+  "author": "Andre Buzeli (@andrebuzeli) - Advanced Memory Bank MCP",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "advanced-memory-bank": "dist/main/index.js"
+  },
+  "scripts": {
+    "build": "tsc --noEmit false --skipLibCheck && shx chmod +x dist/main/index.js",
+    "start": "node dist/main/index.js",
+    "db:init": "node dist/database/initialize.js",
+    "db:migrate": "node dist/database/migrations/run-migrations.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fs-extra": "^11.2.0",
+    "lru-cache": "^10.2.0",
+    "path": "^0.12.7"
+  },
+  "optionalDependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "postgres": "^3.4.3"
+  },
+  "devDependencies": {
+    "@types/benchmark": "^2.1.2",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.11.19",
+    "@types/pg": "^8.11.2",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
+    "benchmark": "^2.1.4",
+    "eslint": "^9.27.0",
+    "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
+    "shx": "^0.4.0",
+    "ts-jest": "^29.3.4",
+    "typescript": "^5.8.2"
+  }
+}
