@@ -1,29 +1,20 @@
 # Advanced Memory Bank MCP v6.0.0
 
-[![npm version](https://badge.fury.io/js/@andrebuzeli%2Fadvanced-memory-bank-mcp.svg)](https://badge.fury.io/js/@andrebuzeli%2Fadvanced-memory-bank-mcp)
+[![npm version](https://img.shields.io/npm/v/@andrebuzeli/advanced-memory-bank-mcp.svg)](https://www.npmjs.com/package/@andrebuzeli/advanced-memory-bank-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Advanced Memory Bank MCP Server with topic-based storage and MEMORY_BANK_ROOT support**
+Advanced Memory Bank MCP Server with topic-based storage and customizable storage location using `MEMORY_BANK_ROOT`.
 
-## 🚀 Features
+## 🚀 Quick Start
 
-- ✅ **14 MCP Tools** - Complete set of memory management tools
-- ✅ **Topic-Based Organization** - Organize memories by topics (fixed and custom)
-- ✅ **MEMORY_BANK_ROOT Support** - Choose where to store your memories
-- ✅ **Fixed Topics** - Predefined topics for common use cases
-- ✅ **Custom Topics** - Create any topic you need
-- ✅ **Search & Filter** - Advanced search across all memories
-- ✅ **Creative Analysis** - AI-powered content analysis
-- ✅ **Sequential Thinking** - Step-by-step problem solving
+### Installation
 
-## 📦 Installation
-
-### NPM (Recommended)
 ```bash
 npm install -g @andrebuzeli/advanced-memory-bank-mcp
 ```
 
-### VS Code MCP Configuration
+### Configuration
+
 Add to your VS Code `settings.json`:
 
 ```json
@@ -44,68 +35,89 @@ Add to your VS Code `settings.json`:
 }
 ```
 
-## 🗂️ MEMORY_BANK_ROOT Configuration
+### Usage
 
-### Environment Variable
 ```bash
-# Windows
-set MEMORY_BANK_ROOT=D:\MyProjects\Memories
+# Set custom storage location (optional)
+export MEMORY_BANK_ROOT="/your/custom/path"
 
-# Linux/Mac
-export MEMORY_BANK_ROOT=/home/user/memories
+# Run the server
+advanced-memory-bank
 ```
 
-### Behavior
-- **With MEMORY_BANK_ROOT**: Uses your specified directory
-- **Without MEMORY_BANK_ROOT**: Uses `~/.advanced-memory-bank` (default)
+## 🆕 New in v6.0.0
+
+- ✅ **MEMORY_BANK_ROOT Support**: Full support for custom storage directories
+- ✅ **Topic-Based System**: Organize memories by topics (fixed and custom)
+- ✅ **14 MCP Tools**: Complete set of memory management tools
+- ✅ **NPM Package**: Available on npmjs.org
+- ✅ **Global Binary**: Install and run globally
 
 ## 🛠️ Available Tools
 
 ### Core Memory Tools
 1. **store-topic-memory** - Store information in a specific topic
-2. **get-topic-memory** - Retrieve topic content
-3. **list-topics** - List all project topics
-4. **list-all-topic-memories** - List all memories by topics
+2. **get-topic-memory** - Retrieve content from a topic
+3. **list-topics** - List all topics in a project
+4. **list-all-topic-memories** - List all memories organized by topics
 5. **search-topic-memories** - Search across all topics
 6. **update-topic-memory** - Update existing topic content
-7. **delete-topic-memory** - Remove a topic completely
+7. **delete-topic-memory** - Remove a topic and its content
 
 ### Project Management
 8. **get-project-info** - Get detailed project information
 9. **list-projects** - List all available projects
-10. **reset-project** - Remove all project memories
-11. **initialize-fixed-topics** - Create standard topic structure
+10. **reset-project** - Remove all memories from a project
+11. **initialize-fixed-topics** - Create default fixed topics
 12. **list-fixed-topics** - List available fixed topics
 
 ### Advanced Features
-13. **analyze-creative-content** - AI-powered content analysis
-14. **sequential-thinking** - Structured problem-solving process
+13. **analyze-creative-content** - Analyze content for insights
+14. **sequential-thinking** - Process complex problems step by step
 
-## 📋 Fixed Topics
+## 📁 Storage Locations
 
-The system includes 10 predefined topics:
+### With MEMORY_BANK_ROOT
+```
+MEMORY_BANK_ROOT/
+├── project-1.json
+├── project-2.json
+└── project-3.json
+```
 
-- `summary` - Project overview and summary
-- `libraries` - Dependencies and libraries used
-- `change-history` - Record of changes and updates
-- `architecture` - System architecture decisions
-- `todo` - Tasks and action items
-- `bugs` - Known issues and problems
-- `features` - Implemented functionalities
-- `documentation` - Technical documentation
-- `testing` - Test strategies and results
-- `deployment` - Deployment configurations
+### Default (without MEMORY_BANK_ROOT)
+```
+~/.advanced-memory-bank/
+├── project-1.json
+├── project-2.json
+└── project-3.json
+```
 
-## 💡 Usage Examples
+## 🗂️ Fixed Topics
 
-### Store a Memory
+The system includes predefined topics for organization:
+
+- `summary` - Project overview
+- `libraries` - Dependencies and libraries
+- `change-history` - Change log
+- `architecture` - Design decisions
+- `todo` - Tasks and to-dos
+- `bugs` - Known issues
+- `features` - Implemented features
+- `documentation` - Technical docs
+- `testing` - Test strategies
+- `deployment` - Deployment configs
+
+## 🎯 Usage Examples
+
+### Store Memory
 ```json
 {
   "tool": "store-topic-memory",
-  "projectName": "my-app",
+  "projectName": "my-project",
   "topic": "bugs",
-  "content": "Critical bug in user authentication - needs immediate fix",
-  "tags": ["critical", "auth", "security"],
+  "content": "Critical bug in checkout process",
+  "tags": ["critical", "checkout"],
   "importance": 9
 }
 ```
@@ -114,89 +126,67 @@ The system includes 10 predefined topics:
 ```json
 {
   "tool": "search-topic-memories",
-  "projectName": "my-app",
-  "query": "authentication",
+  "projectName": "my-project",
+  "query": "checkout bug",
   "limit": 10
 }
 ```
 
-### Initialize Project Structure
+### Creative Analysis
 ```json
 {
-  "tool": "initialize-fixed-topics",
-  "projectName": "new-project"
-}
-```
-
-## 📁 Directory Structure
-
-```
-[MEMORY_BANK_ROOT]/
-├── project-1.json
-├── project-2.json
-└── project-3.json
-```
-
-Each project file contains all topics organized as:
-```json
-{
-  "summary": { "content": "...", "tags": [...], "importance": 8 },
-  "bugs": { "content": "...", "tags": [...], "importance": 9 },
-  "custom-topic": { "content": "...", "tags": [...], "importance": 7 }
+  "tool": "analyze-creative-content",
+  "content": "Design requirements for new feature",
+  "analysisType": "comprehensive"
 }
 ```
 
 ## 🔧 Development
 
-### Local Development
 ```bash
+# Clone repository
 git clone https://github.com/andrebuzeli/advanced-memory-bank-mcp.git
 cd advanced-memory-bank-mcp
+
+# Install dependencies
 npm install
+
+# Build
 npm run build
+
+# Run locally
 npm start
 ```
 
-### Testing
-```bash
-# Test MEMORY_BANK_ROOT functionality
-node test-memory-bank-root.mjs
+## 📖 Documentation
 
-# Demo complete functionality
-node demo-memory-bank-root.mjs
-```
+- [Tools Reference](./TOOLS-REFERENCE.md) - Detailed tool documentation
+- [MEMORY_BANK_ROOT Guide](./MEMORY_BANK_ROOT-GUIDE.md) - Storage configuration guide
+- [Migration Guide](./MIGRATION-GUIDE-v6.0.0.md) - Upgrading from previous versions
 
-## 📚 Documentation
+## 🤝 Contributing
 
-- [TOOLS-REFERENCE.md](TOOLS-REFERENCE.md) - Complete tools reference
-- [MEMORY_BANK_ROOT-GUIDE.md](MEMORY_BANK_ROOT-GUIDE.md) - Configuration guide
-- [TOPIC-SYSTEM-GUIDE-v6.0.0.md](TOPIC-SYSTEM-GUIDE-v6.0.0.md) - Topic system guide
-
-## 🔄 Version History
-
-### v6.0.0 (Latest)
-- ✅ **MEMORY_BANK_ROOT support** - Configure storage location
-- ✅ **Topic-based memory system** - Organized by topics instead of IDs
-- ✅ **14 complete MCP tools** - Full feature set
-- ✅ **Fixed and custom topics** - Flexible organization
-- ✅ **Enhanced search** - Find memories across topics
-- ✅ **Creative analysis** - AI-powered insights
-- ✅ **Sequential thinking** - Structured problem solving
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/andrebuzeli/advanced-memory-bank-mcp/issues)
-- **NPM Package**: [@andrebuzeli/advanced-memory-bank-mcp](https://www.npmjs.com/package/@andrebuzeli/advanced-memory-bank-mcp)
-- **Email**: andrebuzeli2@gmail.com
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Contributing
+## 🔗 Links
 
-Contributions are welcome! Please read our contributing guidelines and submit pull requests to our GitHub repository.
+- [NPM Package](https://www.npmjs.com/package/@andrebuzeli/advanced-memory-bank-mcp)
+- [GitHub Repository](https://github.com/andrebuzeli/advanced-memory-bank-mcp)
+- [Issue Tracker](https://github.com/andrebuzeli/advanced-memory-bank-mcp/issues)
+
+## 📊 Version History
+
+- **v6.0.0** - Topic-based system, MEMORY_BANK_ROOT support, NPM package
+- **v5.x** - Previous versions with basic memory management
 
 ---
 
-**Made with ❤️ by André Buzeli**
+Made with ❤️ by [André Buzeli](https://github.com/andrebuzeli)
