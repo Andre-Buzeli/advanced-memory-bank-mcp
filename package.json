@@ -1,0 +1,56 @@
+{
+  "name": "@andrebuzeli/advanced-memory-bank-mcp",
+  "version": "6.0.0",
+  "description": "Advanced Memory Bank MCP Server with topic-based storage using MEMORY_BANK_ROOT",
+  "type": "module",
+  "bin": {
+    "advanced-memory-bank": "./dist/main/topic-index.js"
+  },
+  "main": "./dist/main/topic-index.js",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE",
+    "TOOLS-REFERENCE.md",
+    "MEMORY_BANK_ROOT-GUIDE.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main/topic-index.js",
+    "dev": "tsc && node dist/main/topic-index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "lru-cache": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "memory",
+    "storage",
+    "topics",
+    "MEMORY_BANK_ROOT",
+    "model-context-protocol",
+    "ai",
+    "memory-bank",
+    "topic-based",
+    "vscode"
+  ],
+  "author": "André Buzeli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrebuzeli/advanced-memory-bank-mcp.git"
+  },
+  "homepage": "https://github.com/andrebuzeli/advanced-memory-bank-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/andrebuzeli/advanced-memory-bank-mcp/issues"
+  }
+}

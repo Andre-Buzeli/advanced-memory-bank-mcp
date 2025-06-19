@@ -1,0 +1,35 @@
+# Arquivos de desenvolvimento
+src/
+tsconfig.json
+*.log
+*.tgz
+
+# Arquivos de teste
+test-*.mjs
+demo-*.mjs
+debug-*.js
+simple-test.js
+
+# Arquivos temporários
+node_modules/
+.nyc_output/
+coverage/
+
+# Arquivos específicos do projeto
+memorias-customizadas/
+*.json
+!package.json
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração local
+.env
+.env.local
